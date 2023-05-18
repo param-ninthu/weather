@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Form } from "./homeElements";
+import { Button, Container, Form, Input } from "./homeElements";
 
 const Home = () => {
   return (
@@ -7,8 +7,8 @@ const Home = () => {
       <Container $mode="secondary">
         {" "}
         <Form>
-          <input type="text" placeholder="Enter the location" />
-          <button type="submit">Search</button>
+          <Input type="text" placeholder="Enter the location" />
+          <Button type="submit">Search</Button>
         </Form>{" "}
       </Container>
     </Container>
