@@ -4,13 +4,18 @@ import { Button, Container, Form, Input } from "./homeElements";
 const Home = () => {
   const [location, setLocation] = useState("");
 
-  useEffect(() => {
-    fetch(
-      `http://api.openweathermap.org/geo/1.0/direct?q=${location}&limit=1&appid=8e1dca7d10efdb98ec902b89f9b2d354`
-    )
-      .then((response) => response.json())
-      .then((data) => console.log(data));
-  }, [location]);
+  const getWeather = async () => {
+    const response = await fetch(
+      `http://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${process.env.OPEN_WEATHER_API_KEY}`
+    );
+    const data = await response.json();
+    console.log(data);
+  };
+
+  if (location) {
+    getWeather();
+  }
+
   return (
     <Container $mode="primary">
       <Container $mode="secondary">
